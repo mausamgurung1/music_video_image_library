@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    <title>Modern Login Page | Mausam gurung</title>
+</head>
+
+<body>
+    {% for message in messages %}
+    <div class="container-fluid p-0">
+        <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">×</span>
+    </button> {{ message }}
+        </div>
+    </div>
+    {% endfor %}
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form method="post" action="{% url 'signup' %}">
+                <!-- Set the method to POST and specify the action URL for signing up -->
+                {% csrf_token %}
+                <h1>Create Account</h1>
+                <!-- Add a field for username -->
+                <input type="text" name="username" placeholder="Username">
+                <!-- Add a field for email -->
+                <input type="email" name="email" placeholder="Email">
+                <!-- Add a field for password -->
+                <input type="password" name="password" placeholder="Password">
+                <button type="submit">Sign Up</button>
+            </form>
+            
+        </div>
+
+        <div class="form-container sign-in">
+            <form method="post" action="{% url 'login' %}">
+                <!-- Ensure the action URL matches your URL pattern -->
+                {% csrf_token %}
+                <h1>Sign In</h1>
+                <!-- Add the name attribute for email -->
+                <input type="email" name="email_login" placeholder="Email">
+                <!-- Add the name attribute for password -->
+                <input type="password" name="password_login" placeholder="Password">
+                <!-- Forget Password link -->
+                <a href="{'password_reset'}">Forget Your Password?</a>
+                <button class="w-100 btn btn-lg btn-danger" type="submit"> Sign In</button>
+            </form>
+        </div>
+
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all of site features</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Register with your personal details to use all of site features</p>
+                    <button class="hidden" id="register">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'scripts.js' %}"></script>
+</body>
+
+</html>

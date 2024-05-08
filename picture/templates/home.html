@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            width: 200px;
+            transition: transform 0.3s;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h2 {
+            margin-top: 0;
+        }
+        
+        .card a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        /* Different background images for each card */
+        
+        .card.photos {
+            background-image: url('photos.jpg');
+        }
+        
+        .card.video {
+            background-image: url('videos.jpg');
+        }
+        
+        .card.music {
+            background-image: url('music.jpg');
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="card photos">
+            <h2>Photos</h2>
+            <a href="#">View Photos</a>
+        </div>
+        <div class="card video">
+            <h2>Videos</h2>
+            <a href="#">Watch Videos</a>
+        </div>
+        <div class="card music">
+            <h2>Music</h2>
+            <a href="#">Listen to Music</a>
+        </div>
+    </div>
+
+</body>
+
+</html>
